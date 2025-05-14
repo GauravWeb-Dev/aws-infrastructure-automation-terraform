@@ -1,9 +1,8 @@
 terraform {
   backend "s3" {
     bucket         = "gaurav-app-storage-bucket"
-    key            = "terraform.tfstate"
+    key            = "terraform/infra.tfstate"
     region         = "ap-south-1"
-    encrypt        = true
-    lock_table     = "terraform-locks"  # Correct param name
+    dynamodb_table = "terraform-locks"
   }
 }
