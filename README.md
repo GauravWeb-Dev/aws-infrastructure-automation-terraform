@@ -152,7 +152,7 @@ terraform apply
 
 ## Author
 
-**Gaurav Sardar**
+**Gaurav  Sardar**
 Cloud/DevOps Enthusiast | Trained in **AWS**, **Linux**, and **Terraform**
 
 ---
