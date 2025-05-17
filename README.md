@@ -181,9 +181,9 @@ terraform apply
 
 ### ✅ Requirements
 
-**Terraform CLI
-**AWS CLI
-**AWS account with required IAM permissions
+* **Terraform CLI
+* **AWS CLI
+* **AWS account with required IAM permissions
 
 ## Project Info
 
