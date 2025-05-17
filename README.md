@@ -175,15 +175,15 @@ Input variables required for the VPC module.
 2. **Configure AWS credentials**
 3. **Run the following commands**:
 
-terraform init
-terraform plan
-terraform apply
+* terraform init
+* terraform plan
+* terraform apply
 
 ### ✅ Requirements
 
-* **Terraform CLI
-* **AWS CLI
-* **AWS account with required IAM permissions
+* Terraform CLI
+* AWS CLI
+* AWS account with required IAM permissions
 
 ## Project Info
 
