@@ -1,204 +1,197 @@
 
 # Terraform AWS Infrastructure Automation Project
 
-## Project Overview
-
-This project demonstrates the use of **Terraform** to provision and automate cloud infrastructure on **AWS**. It follows a modular approach to create:
-
-- A Virtual Private Cloud (VPC)
-- An EC2 instance with web server
-- An S3 bucket
-- Remote backend using S3 + DynamoDB for state management
+This project demonstrates how to automate AWS infrastructure provisioning using Terraform. It includes a modular design to create a Virtual Private Cloud (VPC), launch an EC2 instance, and provision an S3 bucket. Terraform remote backend with S3 and DynamoDB is configured for state management.
 
 ---
 
-## Project Structure
+## 📁 Project Information
 
-### Folder Structure
+- **Region**: `ap-south-1` (Mumbai)
+- **AMI Used**: `ami-03bb6d83c60fc5f7b` (Amazon Linux 2)
+- **Terraform Modules**: `vpc`, `ec2`, `s3`
+- **Remote Backend**: S3 + DynamoDB
+- **Key Outputs**:
+  - EC2 public IP
+  - S3 bucket name
 
+---
+
+## 📸 Screenshots & Descriptions
+
+### 1. Terraform Project Folder Structure
 ![Folder Structure](images/01-folder-structure.png)  
-Organized Terraform project with root configuration files and separate module folders for `vpc`, `ec2`, and `s3`.
+Shows the organized directory including root files and `modules/` folder with `vpc`, `ec2`, and `s3`.
 
 ---
 
-## Terraform Commands and Output
-
-### Terraform Initialization
-
+### 2. Terraform Init Command
 ![Terraform Init](images/02-terraform-init.png)  
-Initializes the Terraform working directory and downloads necessary provider plugins.
+Initializes the Terraform working directory and downloads required providers.
 
 ---
 
-### Terraform Plan
-
+### 3. Terraform Plan Output
 ![Terraform Plan](images/03-terraform-plan.png)  
-Previews the infrastructure resources Terraform will create, modify, or destroy.
+Displays the planned infrastructure actions before applying.
 
 ---
 
-### Terraform Apply Confirmation
-
-![Terraform Apply Confirmation](images/04-apply-confirmation.png)  
-Shows the confirmation prompt before applying changes to AWS infrastructure.
+### 4. Terraform Apply Confirmation
+![Apply Confirmation](images/04-apply-confirmation.png)  
+Prompts for confirmation to proceed with infrastructure creation.
 
 ---
 
-### Apply Success Output
-
+### 5. Terraform Apply Success
 ![Apply Success](images/05-apply-success.png)  
-Displays a message confirming successful resource creation and output values.
+Shows successful creation of infrastructure resources.
 
 ---
 
-## AWS Console Verifications
+### 6. Terraform Output Values
+![Terraform Outputs](images/06-terraform-outputs.png)  
+Displays outputs like EC2 public IP and S3 bucket name after apply.
 
-### EC2 Instance in AWS Console
+---
 
+### 7. AWS Console - EC2 Instance
 ![EC2 Instance](images/07-ec2-instance.png)  
-Confirms the EC2 instance (`WebServer`) is created and running in the AWS Console.
+Shows the EC2 instance running in the AWS Management Console.
 
 ---
 
-### EC2 Browser Access
-
+### 8. EC2 Public IP - Web Access
 ![EC2 Browser Access](images/08-ec2-browser-access.png)  
-Verifies that the EC2 instance is accessible via its public IP with a working web server.
+Verifies web access by visiting EC2 public IP (Apache running).
 
 ---
 
-### S3 Bucket in AWS Console
-
+### 9. AWS Console - S3 Bucket
 ![S3 Bucket](images/09-s3-bucket.png)  
-Shows the S3 bucket (`gaurav-project-app-bucket`) successfully created via Terraform.
+Confirms the creation of the S3 bucket via Terraform.
 
 ---
 
-### VPC and Subnet in AWS Console
-
-![VPC Dashboard](images/10-vpc.png)  
-Displays the custom VPC and associated public subnet.
-
----
-
-## Remote Backend Setup (Optional)
-
-### DynamoDB Lock Table
-
-![DynamoDB Locks](images/11-dynamodb-locks.png)  
-Used for state locking to prevent simultaneous modifications.
+### 10. VPC and Subnet Configuration
+![VPC Subnet](images/10-vpc-subnet.png)  
+Shows the created public subnet inside the custom VPC.
 
 ---
 
-### S3 Bucket for Backend
-
-![S3 Backend](images/12-s3-backend.png)  
-Stores the Terraform state file for consistent team collaboration.
-
----
-
-## Terraform Code View
-
-### Main Terraform Configuration
-
-![main.tf](images/13-main.tf.png)
-
-### Variables File
-
-![variables.tf](images/14-variables.tf.png)
-
-### Outputs File
-
-![outputs.tf](images/15-outputs.tf.png)
+### 11. AWS Console - VPC Dashboard
+![VPC Console](images/11-vpc-console.png)  
+Verifies the custom VPC exists in the AWS Console.
 
 ---
 
-## VPC Module
-
-### VPC Main File
-
-![VPC Main](images/16-vpc-main.tf.png)
-
-### VPC Variables
-
-![VPC Variables](images/17-vpc-variables.tf.png)
-
-### VPC Outputs
-
-![VPC Outputs](images/18-vpc-outputs.tf.png)
+### 12. DynamoDB Table for State Locking
+![DynamoDB Locks](images/12-dynamodb-locks.png)  
+Displays `terraform-locks` table for state locking.
 
 ---
 
-## EC2 Module
-
-### EC2 Main File
-
-![EC2 Main](images/19-ec2-main.tf.png)
-
-### EC2 Variables
-
-![EC2 Variables](images/20-ec2-variables.tf.png)
-
-### EC2 Outputs
-
-![EC2 Outputs](images/21-ec2-outputs.tf.png)
+### 13. S3 Bucket for Backend State
+![S3 Backend](images/13-s3-backend.png)  
+Shows the S3 bucket configured for remote state storage.
 
 ---
 
-## S3 Module
-
-### S3 Main File
-
-![S3 Main](images/22-s3-main.tf.png)
-
-### S3 Variables
-
-![S3 Variables](images/23-s3-variables.tf.png)
-
-### S3 Outputs
-
-![S3 Outputs](images/24-s3-output.tf.png)
+### 14. S3 Bucket Versioning Enabled
+![S3 Backend Versioning](images/14-s3-backend-versioning.png)  
+Verifies versioning is enabled for `.tfstate` history.
 
 ---
 
-## Code in VS Code Editor
-
-![Code Editor](images/25-code-editor.png)  
-Provides a view of clean, modular Terraform code opened in Visual Studio Code.
+### 15. Code Editor - main.tf
+![Code Editor - main.tf](images/15-code-editor-main.png)  
+Shows the root `main.tf` in VS Code.
 
 ---
 
-## How to Use
+### 16. Code Editor - variables.tf
+![Code Editor - variables.tf](images/16-code-editor-variables.png)  
+Displays declared input variables for infrastructure.
 
-1. Clone the repository:
-   git clone https://github.com/your-username/aws-infrastructure-automation-terraform.git
-   cd aws-infrastructure-automation-terraform
+---
 
-2. Initialize the working directory:
+### 17. Code Editor - outputs.tf
+![Code Editor - outputs.tf](images/17-code-editor-outputs.png)  
+Shows the output configuration for public IP and bucket.
 
-   terraform init
+---
 
-3. Preview the resources:
+### 18. EC2 Module - main.tf
+![EC2 Module - main.tf](images/18-ec2-module-main.png)  
+Terraform code to create the EC2 instance.
 
-   terraform plan
+---
 
-4. Apply the configuration:
+### 19. EC2 Module - variables.tf
+![EC2 Module - variables.tf](images/19-ec2-module-variables.png)  
+Variables used for EC2 provisioning.
 
-   terraform apply
+---
 
-## Requirements
+### 20. S3 Module - main.tf
+![S3 Module - main.tf](images/20-s3-module-main.png)  
+Code to create and configure the S3 bucket.
 
-* Terraform CLI installed
-* AWS CLI configured
-* IAM permissions for EC2, S3, VPC, DynamoDB
+---
+
+### 21. S3 Module - outputs.tf
+![S3 Module - outputs.tf](images/21-s3-module-outputs.png)  
+S3 module outputs like bucket name.
+
+---
+
+### 22. S3 Module - variables.tf
+![S3 Module - variables.tf](images/22-s3-module-variables.png)  
+Input variables for the S3 module.
+
+---
+
+### 23. VPC Module - main.tf
+![VPC Module - main.tf](images/23-vpc-module-main.png)  
+Defines custom VPC and public subnet.
+
+---
+
+### 24. VPC Module - outputs.tf
+![VPC Module - outputs.tf](images/24-vpc-module-outputs.png)  
+Outputs like VPC ID and subnet ID.
+
+---
+
+### 25. VPC Module -variables.tf
+![VPC Module - variables.tf](images/25-vpc-module-variables.png)  
+Input variables required for the VPC module.
+
+---
+
+## 🧪 How to Run
+
+1. **Clone this repository**
+2. **Configure AWS credentials**
+3. **Run the following commands**:
+
+terraform init
+terraform plan
+terraform apply
+
+### ✅ Requirements
+
+**Terraform CLI
+**AWS CLI
+**AWS account with required IAM permissions
 
 ## Project Info
 
-* **Region:** ap-south-1 (Mumbai)
-* **AMI Used:** `ami-03bb6d83c60fc5f7b` (Amazon Linux 2)
-* **Remote Backend:** S3 + DynamoDB
-* **Modules:** vpc, ec2, s3
-* **Outputs:** EC2 public IP and S3 bucket name
+**Region:** ap-south-1 (Mumbai)
+ **AMI Used:** `ami-03bb6d83c60fc5f7b` (Amazon Linux 2)
+**Remote Backend:** S3 + DynamoDB
+**Modules:** vpc, ec2, s3
+**Outputs:** EC2 public IP and S3 bucket name
 
  Author
 Gaurav Sardar
